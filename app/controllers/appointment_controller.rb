@@ -6,7 +6,7 @@ class AppointmentController < ApplicationController
     @stranges = @dr.appointments.where(speciality: 'strange')
     @peds = @dr.appointments.where(speciality: 'pediatrics')
     @fams = @dr.appointments.where(speciality: 'family medicine')
-    render component: 'Appointments', props: { stranges: @stranges, peds: @peds, fams: @fams }
+    render component: 'Appointments', props: { stranges: @stranges, peds: @peds, fams: @fams, doctor: @dr, users: User.all }
   end
 
   def show

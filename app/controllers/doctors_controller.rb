@@ -7,12 +7,12 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    render component: 'Doctor', props: { doctors: @dr, doctor_name: @dr.dr_name }
+    render component: 'Doctor', props: { doctor: @dr, doctor_name: @dr.dr_name, users: @dr.users }
   end
 
   def new
     @dr = Doctor.new
-    render component: 'DoctorNew', props: { doctors: @dr }
+    render component: 'DoctorNew', props: { doctor: @dr }
   end
 
   def create
@@ -21,12 +21,12 @@ class DoctorsController < ApplicationController
     if @dr.save
       redirect_to @dr
     else
-      render component: 'DoctorNew', props: { doctors: @dr }
+      render component: 'DoctorNew', props: { doctor: @dr }
     end
   end
 
   def edit
-    render component: 'DoctorEdit', props: { doctors: @dr }
+    render component: 'DoctorEdit', props: { doctor: @dr }
   end
 
   def update

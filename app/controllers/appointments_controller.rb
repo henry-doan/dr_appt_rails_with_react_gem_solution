@@ -1,4 +1,4 @@
-class AppointmentController < ApplicationController
+class AppointmentsController < ApplicationController
   before_action :set_doc
   before_action :set_appoint, only: [:show, :edit, :update, :destroy]
 
@@ -17,7 +17,7 @@ class AppointmentController < ApplicationController
   def new
     @users = User.all - @dr.users
     @appointment = @dr.appointments.new
-    render component: 'AppointmentNew', props: { appt: @appointment, users: @users }
+    render component: 'AppointmentNew', props: { appt: @appointment, users: @users, doctor: @dr }
   end
 
   def create
@@ -25,20 +25,20 @@ class AppointmentController < ApplicationController
     if @appointment.save
       redirect_to doctor_appointments_path(@dr)
     else
-      render component: 'AppointmentNew', props: { appt: @appointment, users: @users }
+      render component: 'AppointmentNew', props: { appt: @appointment, users: @users, doctor: @dr }
     end
   end
 
   def edit 
     @users = User.all - @dr.users
-    render component: 'AppointmentEdit', props: { appt: @appointment, users: @users }
+    render component: 'AppointmentEdit', props: { appt: @appointment, users: @users, doctor: @dr }
   end
 
   def update
     if @appointment.update(appointment_params)
       redirect_to doctor_appointments_path(@dr)
     else
-      render component: 'AppointmentEdit', props: { appt: @appointment, users: @users }
+      render component: 'AppointmentEdit', props: { appt: @appointment, users: @users, doctor: @dr }
     end
   end
 

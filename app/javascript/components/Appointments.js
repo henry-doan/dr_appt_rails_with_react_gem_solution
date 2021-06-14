@@ -37,11 +37,11 @@ const Appointments = ({ doctor, users, stranges, peds, fams }) => {
       { peds.map((p) => (
         <div>
           <p>{displayUser(p.user_id)}</p>
-          <a href={`/doctors/${doctor.id}/appointments/${s.id}`}>
+          <a href={`/doctors/${doctor.id}/appointments/${p.id}`}>
             show
           </a>
           {' '}
-          <a href={`/doctors/${doctor.id}/appointments/${s.id}/edit`}>
+          <a href={`/doctors/${doctor.id}/appointments/${p.id}/edit`}>
             edit
           </a>
           {' '}
@@ -54,11 +54,11 @@ const Appointments = ({ doctor, users, stranges, peds, fams }) => {
       { fams.map((f) => (
         <div>
           <p>{displayUser(f.user_id)}</p>
-          <a href={`/doctors/${doctor.id}/appointments/${s.id}`}>
+          <a href={`/doctors/${doctor.id}/appointments/${f.id}`}>
             show
           </a>
           {' '}
-          <a href={`/doctors/${doctor.id}/appointments/${s.id}/edit`}>
+          <a href={`/doctors/${doctor.id}/appointments/${f.id}/edit`}>
             edit
           </a>
           {' '}

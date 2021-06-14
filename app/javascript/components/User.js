@@ -1,10 +1,11 @@
 import React from "react";
 
 const User = ({ user, doctors, user_full_name }) => {
-  const { id } = user;
+  const { id, dob } = user;
   return (
     <>
       <h1>{user_full_name}</h1>
+      <h3>{dob}</h3>
       <hr />
       <h6>Doctors</h6>
       <ul>

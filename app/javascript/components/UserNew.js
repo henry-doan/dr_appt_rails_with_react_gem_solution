@@ -1,9 +1,10 @@
 import React from "react";
 
 const UserNew = ({ user }) => {
-  const { first_name, last_name, errors } = user;
+  const { first_name, last_name, dob, errors } = user;
   const defaultFirstName = first_name ? first_name : "";
   const defaultLastName = last_name ? last_name : "";
+  const defaultDob = dob ? dob : "";
   return (
   <>
     <h1>New User</h1>
@@ -20,6 +21,12 @@ const UserNew = ({ user }) => {
         type="text"
         defaultValue={defaultLastName}
         name="user[last_name]"
+      />
+      <input
+        placeholder="DOB"
+        type="text"
+        defaultValue={defaultDob}
+        name="user[dob]"
       />
       <button type="submit">Add</button>
     </form>
